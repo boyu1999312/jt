@@ -26,7 +26,6 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public EasyUIData findItemByPage(Integer page, Integer rows) {
-		System.out.println("abc");
 		Integer totle = itemMapper.selectCount(null);
 		Integer pageStart = (page-1)*rows;
 		List<Item> itemList = itemMapper.findItemByPage(pageStart, rows);
