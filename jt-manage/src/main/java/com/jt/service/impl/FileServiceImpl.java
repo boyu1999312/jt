@@ -11,17 +11,20 @@ import javax.imageio.ImageIO;
 
 import com.jt.service.FileService;
 import com.jt.vo.ImageVO;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
 @Service
+@PropertySource("classpath:properties/image.properties")
 public class FileServiceImpl implements FileService {
 
-	private String localDirPath = "D:/1-jt/image/";	 //本地图片文件夹路径
-	private String urlPath = "http://image.jt.com/"; //定义虚拟url
-	
-	
+	@Value("${image.localDirPath}")
+	private String localDirPath;	 //本地图片文件夹路径
+	@Value("${image.urlPath}")
+	private String urlPath; //定义虚拟url
 	
 	/**
 	 * 1.获取图片的名称
