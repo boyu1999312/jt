@@ -25,6 +25,7 @@ public class ItemCatController {
 	@RequestMapping("list")
 	public List<EasyUITree> list(@RequestParam(value="id",defaultValue="0")Long parentId) {
 		/*itemCatService.findItemCatByParentId(parentId);*/
-		return itemCatService.findItemCatByCache(parentId);
+		//findItemCatByCache
+		return itemCatService.findItemCatByParentId(parentId);
 	}
 }

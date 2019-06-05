@@ -4,23 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jt.annotation.TestOne;
 import com.jt.mapper.ItemCatMapper;
-import com.jt.util.ObjectMapperUtil;
 import com.jt.vo.EasyUITree;
 import com.jt.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.jt.pojo.ItemCat;
-import org.springframework.util.StringUtils;
-import redis.clients.jedis.Jedis;
 
 
 @Service
 public class ItemCatServiceImpl implements ItemCatService {
 	@Autowired
 	private ItemCatMapper itemCatMapper;
-	@Autowired
-	private Jedis jedis;
+	//@Autowired
+	//private Jedis jedis;
 
 	@Override
 	public String findItemCatNameByCatId(Long itemCatId) {
@@ -29,6 +27,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	}
 
 
+	@TestOne
 	@Override
 	public List<EasyUITree> findItemCatByParentId(Long parentId) {
 		List<ItemCat> ItemCatList = findItemCatList(parentId);
@@ -47,7 +46,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	}
 
 
-	@Override
+/*	@Override
 	public List<EasyUITree> findItemCatByCache(Long parentId){
 		String key = "ITEM_CAT_"+parentId;
 		String result = jedis.get(key);
@@ -66,7 +65,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 		}
 
 		return	treeList;
-	}
+	}*/
 
 
 	
