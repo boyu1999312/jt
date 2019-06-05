@@ -9,7 +9,7 @@ public class MsgController {
     //查看服务器端口
     @RequestMapping("getMsg")
     public String getMsg(){
-        String str = "this is 8099";
+        String str = "this is 8091";
         System.out.println(str);
         return str;
     }

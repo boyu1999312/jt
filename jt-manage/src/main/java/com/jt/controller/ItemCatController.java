@@ -24,7 +24,7 @@ public class ItemCatController {
 	// 显示树状分类
 	@RequestMapping("list")
 	public List<EasyUITree> list(@RequestParam(value="id",defaultValue="0")Long parentId) {
-		
-		return itemCatService.findItemCatByParentId(parentId);
+		/*itemCatService.findItemCatByParentId(parentId);*/
+		return itemCatService.findItemCatByCache(parentId);
 	}
 }
