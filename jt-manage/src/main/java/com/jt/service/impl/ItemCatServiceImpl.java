@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.jt.annotation.TestOne;
+import com.jt.annotation.Cache_find;
 import com.jt.mapper.ItemCatMapper;
 import com.jt.vo.EasyUITree;
 import com.jt.service.ItemCatService;
@@ -20,6 +20,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	//@Autowired
 	//private Jedis jedis;
 
+
 	@Override
 	public String findItemCatNameByCatId(Long itemCatId) {
 		
@@ -27,7 +28,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	}
 
 
-	@TestOne
+	@Cache_find("ITEM_CAT")
 	@Override
 	public List<EasyUITree> findItemCatByParentId(Long parentId) {
 		List<ItemCat> ItemCatList = findItemCatList(parentId);
@@ -39,7 +40,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 		return treeList;
 	}
 
-	
+
 	public List<ItemCat> findItemCatList(Long parentId){
 
 		return	itemCatMapper.selectList(new QueryWrapper<ItemCat>().eq("parent_id", parentId));

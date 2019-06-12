@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jt.annotation.Cache_find;
 import com.jt.mapper.ItemDescMapper;
 import com.jt.mapper.ItemMapper;
 import com.jt.vo.EasyUIData;
@@ -23,7 +24,7 @@ public class ItemServiceImpl implements ItemService {
 	private ItemMapper itemMapper;
 	@Autowired
 	private ItemDescMapper itemDescMapper;
-	
+
 	@Override
 	public EasyUIData findItemByPage(Integer page, Integer rows) {
 		Integer totle = itemMapper.selectCount(null);
