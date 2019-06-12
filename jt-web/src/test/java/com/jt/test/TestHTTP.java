@@ -42,7 +42,7 @@ import java.util.HashMap;
         map.put("t", "%20");
         map.put("u", "");
         String html = clientService.doGet(csdnUrl, map);
-        System.out.println(html);
+        System.out.println("html: " + html);
     }
 
 }
